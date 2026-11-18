@@ -1,0 +1,219 @@
+/* Typography Imports */
+
+/* Drift Electric Bike Company Project  
+   GIT 450/550 Fall Session B - 66376 | 72329 
+   WebDev Team, 2026
+*/   
+
+/* CSS SYSTEM */
+@layer reset, tokens, base, layout, components, utilities, states, overrides;
+
+/* RESET */ 
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} 
+
+html {
+    scroll-behavior: smooth;
+}
+
+    /* MOTION PREFERENCES */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+  line-height: 1.5;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+}
+
+/* TOKENS */ 
+@layer tokens{
+    :root {
+        /* COLORS */ 
+        --color-primary: ;                        /* brand accent | interactive elements - buttons, links, active states */
+        --color-primary-hover: ;                  /* hover accent color */ 
+        --color-secondary: ;                      /* secondary brand or accent color */
+        --color-text: ;                           /* body text color */
+        --color-text-muted: ;                     /* subtitles / captions */
+        --color-bg: ;                             /* base canvas layer / site background color */
+        --color-surface: ;                        /* card layers sitting on top of the background */
+        --color-error: #c62828;                 /* error message color */
+        --color-focus: ;                          /* color of the focus indicator outline / ring | note: needs 3:1 contrast ratio to bg */ 
+
+        /* TYPOGRAPHY */ 
+        --font-family: ; 
+        --font-body: ; 
+        --font-heading: ;
+
+        /* -- fluid font sizes -- */ 
+        --text-sm: clamp(0.8rem, 0.78rem + 0.15vw, 0.875rem);              /* captions/labels */
+        --text-base: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);              /* body */ 
+        --text-lg: clamp(1.25rem, 1.16rem + 0.44vw, 1.5rem);               /* h3  */
+        --text-xl: clamp(1.75rem, 1.53rem + 1.11vw, 2.375rem);             /* h2 */
+        --text-2xl: clamp(2.25rem, 1.85rem + 2vw, 3.375rem);            /* h1 */
+
+        /* -- font weights -- */
+        --font-weight-normal: 400;
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700; 
+
+        /* -- line heights -- */
+        --line-height-tight: 1.2;                /* headings */
+        --line-height-normal: 1.5;               /* body */ 
+
+        /* -- letter spacing -- */
+        --letter-spacing-tight: -0.02em;         /* large headings */ 
+        --letter-spacing-normal: 0em;            /* body text */
+        --letter-spacing-wide: 0.05em;           /* ALL CAPS - TAGS/BUTTONS */  
+
+        /* spacing */ 
+        --space-xs: clamp(0.25rem, 0.198rem + 0.22vw, 0.375rem);           /* 4px - 6px */
+        --space-sm: clamp(0.5rem, 0.396rem + 0.44vw, 0.75rem);             /* 8px - 12px */
+        --space-md: clamp(1rem, 0.896rem + 0.44vw, 1.25rem);               /* 16px - 20px */
+        --space-lg: clamp(1.5rem, 1.293rem + 0.88vw, 2rem);                /* 24px - 32px */
+        --space-xl: clamp(2rem, 1.586rem + 1.77vw, 3rem);                  /* 32px - 48px */
+
+        /* shape */ 
+        --radius-sm: 0.25rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+
+        /* focus */ 
+        --focus-width: 3px;                      /* thiccness of the focus outline */
+        --focus-color: ;                         /* color of the focus outline */
+        --focus-offset: 3px;                     /* space between the edge of the element & the focus outline */ 
+        
+        /* UI stacking */ 
+        --z-base: ;                                 /* elevates the elements above the default page flow (o or auto) slightly */ 
+        --z-sticky: ;                               /* keep sticky headers/nav bars above normal page content as we scroll */ 
+        --z-dropdown: 100;                          /* controls the stacking layer for menus, action dropdowns */
+        --z-modal: 200;                             /* places the pop-up dialog box above its own dark backdrop */ 
+        --z-modal-backdrop: ;                       /* dims screen behind a pop up modal */
+        --z-tooltip: ;                              /* makes hover hints appear on top of everything else */
+    }
+
+}
+
+@layer base{
+    /* BODY */
+    body{
+        background: var(--color-bg);
+        color: var(--color-text);
+        font-family: var(--font-body);
+        font-size: var(--text-base);
+        line-height: var(--line-height-normal);
+    }
+
+    /* h1, h2, h3, */
+    h1 {
+        font-family: var(--font-heading);
+        color: var(--color-text);
+        line-height: var(--line-height-tight);
+        font-size: var(--text-2xl);
+    }
+
+    h2{
+        font-family: var(--font-heading);
+        color: var(--color-text);
+        line-height: var(--line-height-tight);
+        font-size: var(--text-xl);
+    }
+
+    h3{
+        font-family: var(--font-heading);
+        color: var(--color-text);
+        line-height: var(--line-height-tight);
+        font-size: var(--text-lg);
+    }
+
+    /* LINKS */  
+    a{
+        color: var(--color-primary);
+        text-decoration: none;
+        width: fit-content;
+    }
+
+    a:hover{
+    }
+
+}
+
+@layer layout{
+    /* GRID */ 
+    .grid {
+        display: grid;
+        gap: var(--space-md);
+    }
+
+    .grid--2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+     .grid--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* mobile */ 
+    @media (max-width: 768px) {
+        .grid--2. 
+        .grid--3 {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* CONTAINER */
+    .container {
+        width: min(100% - clamp(2rem, 5vw, 4rem), 1280px);
+        margin-inline: auto;
+    }
+}
+
+@layer components{
+    /* BUTTONS */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-md);
+        color: var(--color-primary);
+        border: 0;
+    }
+    /* CARDS */ 
+}
+
+@layer utilities{
+}
+
+@layer states{
+    /* HELPER CLASSES */ 
+}
+
+@layer overrides{
+}
