@@ -1,128 +1,90 @@
 /* Typography Imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
+/* using poppins & inter fonts as placeholders */ 
 
-/* Drift Electric Bike Company Project  
-   GIT 450/550 Fall Session B - 66376 | 72329 
+/* Drift Electric Bike Company Project
+   GIT 450/550 Fall Session B - 66376 | 72329
    WebDev Team, 2026
-*/   
+*/
 
 /* CSS SYSTEM */
 @layer reset, tokens, base, layout, components, utilities, states, overrides;
 
-/* RESET */ 
+/* RESET ------------------------------------------ */
 @layer reset {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-} 
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-html {
-    scroll-behavior: smooth;
-}
-
-    /* MOTION PREFERENCES */
-@media (prefers-reduced-motion: no-preference) {
     html {
         scroll-behavior: smooth;
     }
-}
 
-body {
-  line-height: 1.5;
-}
-
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-
-input, button, textarea, select {
-  font: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
-}
-
-/* TOKENS */ 
-@layer tokens{
-    :root {
-        /* COLORS */ 
-        --color-primary: ;                        /* brand accent | interactive elements - buttons, links, active states */
-        --color-primary-hover: ;                  /* hover accent color */ 
-        --color-secondary: ;                      /* secondary brand or accent color */
-        --color-text: ;                           /* body text color */
-        --color-text-muted: ;                     /* subtitles / captions */
-        --color-bg: ;                             /* base canvas layer / site background color */
-        --color-surface: ;                        /* card layers sitting on top of the background */
-        --color-error: #c62828;                 /* error message color */
-        --color-focus: ;                          /* color of the focus indicator outline / ring | note: needs 3:1 contrast ratio to bg */ 
-
-        /* TYPOGRAPHY */ 
-        --font-family: ; 
-        --font-body: ; 
-        --font-heading: ;
-
-        /* -- fluid font sizes -- */ 
-        --text-sm: clamp(0.8rem, 0.78rem + 0.15vw, 0.875rem);              /* captions/labels */
-        --text-base: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);              /* body */ 
-        --text-lg: clamp(1.25rem, 1.16rem + 0.44vw, 1.5rem);               /* h3  */
-        --text-xl: clamp(1.75rem, 1.53rem + 1.11vw, 2.375rem);             /* h2 */
-        --text-2xl: clamp(2.25rem, 1.85rem + 2vw, 3.375rem);            /* h1 */
-
-        /* -- font weights -- */
-        --font-weight-normal: 400;
-        --font-weight-semibold: 600;
-        --font-weight-bold: 700; 
-
-        /* -- line heights -- */
-        --line-height-tight: 1.2;                /* headings */
-        --line-height-normal: 1.5;               /* body */ 
-
-        /* -- letter spacing -- */
-        --letter-spacing-tight: -0.02em;         /* large headings */ 
-        --letter-spacing-normal: 0em;            /* body text */
-        --letter-spacing-wide: 0.05em;           /* ALL CAPS - TAGS/BUTTONS */  
-
-        /* spacing */ 
-        --space-xs: clamp(0.25rem, 0.198rem + 0.22vw, 0.375rem);           /* 4px - 6px */
-        --space-sm: clamp(0.5rem, 0.396rem + 0.44vw, 0.75rem);             /* 8px - 12px */
-        --space-md: clamp(1rem, 0.896rem + 0.44vw, 1.25rem);               /* 16px - 20px */
-        --space-lg: clamp(1.5rem, 1.293rem + 0.88vw, 2rem);                /* 24px - 32px */
-        --space-xl: clamp(2rem, 1.586rem + 1.77vw, 3rem);                  /* 32px - 48px */
-
-        /* shape */ 
-        --radius-sm: 0.25rem;
-        --radius-md: 0.5rem;
-        --radius-lg: 0.75rem;
-
-        /* focus */ 
-        --focus-width: 3px;                      /* thiccness of the focus outline */
-        --focus-color: ;                         /* color of the focus outline */
-        --focus-offset: 3px;                     /* space between the edge of the element & the focus outline */ 
-        
-        /* UI stacking */ 
-        --z-base: ;                                 /* elevates the elements above the default page flow (o or auto) slightly */ 
-        --z-sticky: ;                               /* keep sticky headers/nav bars above normal page content as we scroll */ 
-        --z-dropdown: 100;                          /* controls the stacking layer for menus, action dropdowns */
-        --z-modal: 200;                             /* places the pop-up dialog box above its own dark backdrop */ 
-        --z-modal-backdrop: ;                       /* dims screen behind a pop up modal */
-        --z-tooltip: ;                              /* makes hover hints appear on top of everything else */
+    img {
+        display: block;
+        max-width: 100%;
     }
 
+    ul {
+        list-style: none;
+    }
+
+    /* accessibility */
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
 }
 
-@layer base{
-    /* BODY */
-    body{
+/* Design Tokens -------------------------------- */
+@layer tokens {
+    :root {
+        /* COLORS */
+        --color-primary: #15324B;          /* primary brand navy */
+        --color-primary-hover: #244B68;    /* muted navy hover color */
+        --color-secondary: #B54708;        /* orange secondary accent */
+        --color-text: #15324B;             /* body text */
+        --color-text-muted: #40576A;       /* secondary text */
+        --color-bg: #FFFFFF;               /* page background */
+        --color-surface: #F2F5F7;          /* alternate sections and cards */
+        --color-hero: #F2F5F7;             /* hero section background */
+        --color-border: #CBD5DC;           /* borders for headers, buttons, and cards */
+        --color-focus: #B54708;            /* keyboard focus */   
+
+
+        /* TYPOGRAPHY */
+        --font-body: 'Inter', Arial, sans-serif;
+        --font-heading: 'Poppins', Arial, sans-serif;
+        --text-sm: 0.875rem;
+        --text-base: 1rem;
+        --text-lg: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+        --text-xl: clamp(1.75rem, 1.4rem + 1vw, 2.375rem);
+        --text-2xl: clamp(2.25rem, 1.8rem + 2vw, 3.375rem);
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
+        --line-height-tight: 1.2;
+        --line-height-normal: 1.5;
+
+        /* SPACING */
+        --space-sm: 0.75rem;
+        --space-md: 1.25rem;
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+
+        /* SHAPE */
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+    }
+}
+
+/* Base -------------------------------- */
+@layer base {
+    body {
         background: var(--color-bg);
         color: var(--color-text);
         font-family: var(--font-body);
@@ -130,90 +92,342 @@ p, h1, h2, h3, h4, h5, h6 {
         line-height: var(--line-height-normal);
     }
 
-    /* h1, h2, h3, */
-    h1 {
+    h1, h2, h3 {
         font-family: var(--font-heading);
-        color: var(--color-text);
         line-height: var(--line-height-tight);
+    }
+
+    h1 {
         font-size: var(--text-2xl);
     }
 
-    h2{
-        font-family: var(--font-heading);
-        color: var(--color-text);
-        line-height: var(--line-height-tight);
+    h2 {
         font-size: var(--text-xl);
     }
 
-    h3{
-        font-family: var(--font-heading);
-        color: var(--color-text);
-        line-height: var(--line-height-tight);
+    h3 {
         font-size: var(--text-lg);
     }
 
-    /* LINKS */  
-    a{
+    p {
+        margin-top: var(--space-sm);
+    }
+
+    a {
         color: var(--color-primary);
         text-decoration: none;
-        width: fit-content;
     }
 
-    a:hover{
+    a:hover {
+        text-decoration: underline;
     }
 
+    a:focus-visible {
+        outline: 3px solid var(--color-focus);
+        outline-offset: 3px;
+    }
 }
 
-@layer layout{
-    /* GRID */ 
-    .grid {
+/* Layout -------------------------------- */
+@layer layout {
+    /* CONTAINER */
+    .container {
+        width: min(100% - 2rem, 1280px);
+        margin-inline: auto;
+    }
+
+    /* GRID */
+    .hero-grid,
+    .split {
         display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
+        gap: var(--space-xl);
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-lg);
+        margin-top: var(--space-lg);
+    }
+
+    /* HEADER AND FOOTER */
+    .header,
+    .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-lg);
+    }
+
+    .site-nav ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
         gap: var(--space-md);
     }
 
-    .grid--2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* SECTIONS */
+    .section {
+        padding: var(--space-xl) 0;
     }
 
-     .grid--3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+    .section-muted {
+        background: var(--color-surface);
     }
 
-    /* mobile */ 
-    @media (max-width: 768px) {
-        .grid--2. 
-        .grid--3 {
-            grid-template-columns: 1fr;
+    .align-start,
+    .product-detail {
+        align-items: start;
+    }
+
+    /* RESPONSIVE LAYOUT */
+    @media (max-width: 900px) {
+        .header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .site-nav ul {
+            justify-content: flex-start;
         }
     }
 
-    /* CONTAINER */
-    .container {
-        width: min(100% - clamp(2rem, 5vw, 4rem), 1280px);
-        margin-inline: auto;
+    @media (max-width: 768px) {
+        .hero-grid,
+        .split {
+            grid-template-columns: 1fr;
+        }
+
+        .product-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 520px) {
+        .product-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .site-nav ul {
+            gap: var(--space-sm);
+        }
     }
 }
 
-@layer components{
+/* COMPONENTS -------------------------------- */
+@layer components {
+    /* ACCESSIBILITY */
+    .skip-link {
+        position: absolute;
+        top: -100px;
+        left: 12px;
+        padding: var(--space-sm);
+        background: var(--color-bg);
+        z-index: 10;
+    }
+
+    .skip-link:focus {
+        top: 12px;
+    }
+
+    /* HEADER */
+    .site-header {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .header {
+        min-height: 80px;
+        padding-block: var(--space-md);
+    }
+
+    .logo {
+        color: var(--color-text);
+        font-family: var(--font-heading);
+        font-size: var(--text-lg);
+        font-weight: var(--font-weight-bold);
+    }
+
+    .site-nav a {
+        color: var(--color-text);
+        font-size: var(--text-sm);
+        font-weight: var(--font-weight-semibold);
+    }
+
+    /* HERO */
+    .hero {
+        background: var(--color-hero);
+    }
+
+    .hero-grid {
+        min-height: 430px;
+    }
+
+    .hero-copy {
+        padding-block: var(--space-xl);
+    }
+
+    .hero-copy > p:not(.eyebrow) {
+        color: var(--color-text-muted);
+        max-width: 470px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-height: 370px;
+        object-fit: contain;
+    }
+
     /* BUTTONS */
+    .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        margin-top: var(--space-lg);
+    }
+
     .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: var(--space-sm) var(--space-md);
+        padding: var(--space-sm) var(--space-lg);
         border-radius: var(--radius-md);
-        color: var(--color-primary);
-        border: 0;
+        background: var(--color-text);
+        color: var(--color-bg);
+        font-weight: var(--font-weight-bold);
     }
-    /* CARDS */ 
+
+    .btn-light {
+        background: var(--color-bg);
+        color: var(--color-text);
+        border: 1px solid var(--color-border);
+    }
+
+    /* TEXT */
+    .eyebrow {
+        color: var(--color-secondary);
+        font-size: var(--text-sm);
+        font-weight: var(--font-weight-bold);
+        letter-spacing: 0.1em;
+        margin-bottom: var(--space-sm);
+    }
+
+    .section-intro {
+        max-width: 670px;
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-lg);
+    }
+
+    .small-note {
+        color: var(--color-text-muted);
+        font-size: var(--text-sm);
+        margin-top: var(--space-md);
+    }
+
+    /* PRODUCT CARDS */
+    .product-card {
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+    }
+
+    .product-image {
+        background: var(--color-surface);
+        padding: var(--space-md);
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 220px;
+        object-fit: contain;
+    }
+
+    .product-body {
+        padding: var(--space-lg);
+    }
+
+    .product-link,
+    .back-link {
+        display: inline-block;
+        margin-top: var(--space-md);
+        font-weight: var(--font-weight-bold);
+    }
+
+    .back-link {
+        margin-bottom: var(--space-lg);
+    }
+
+    /* FEATURE PANELS */
+    .feature-panel {
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+    }
+
+    /* PRODUCT DETAILS */
+    .detail-image {
+        background: var(--color-surface);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+    }
+
+    .detail-image img {
+        width: 100%;
+        max-height: 390px;
+        object-fit: contain;
+    }
+
+    /* CALENDAR PLACEHOLDER */
+    .calendar-placeholder {
+        background: var(--color-surface);
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        margin-top: var(--space-lg);
+        text-align: center;
+    }
+
+    /* FOOTER */
+    .site-footer {
+        background: var(--color-text);
+        color: var(--color-bg);
+        padding: var(--space-lg) 0;
+        font-size: var(--text-sm);
+    }
+
+    .footer-link {
+        color: var(--color-bg);
+        white-space: nowrap;
+    }
 }
 
-@layer utilities{
+/* UTILITIES -------------------------------- */
+@layer utilities {
+    /* helper classes */
 }
 
-@layer states{
-    /* HELPER CLASSES */ 
+/* STATES ----------------------------------- */
+@layer states {
+    .btn:hover {
+        background: var(--color-primary-hover);
+        color: var(--color-bg);
+        text-decoration: none;
+    }
+
+    .btn-light:hover {
+        background: var(--color-surface);
+        color: var(--color-text);
+    }
+
+    .site-nav a:hover {
+        color: var(--color-primary);
+    }
 }
 
-@layer overrides{
+/* OVERRIDES -------------------------------- */
+@layer overrides {
 }
