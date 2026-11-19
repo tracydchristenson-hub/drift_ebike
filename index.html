@@ -4,62 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="a responsive website for up and coming e-bike startup Drift E-Bike Company. GIT 450 | 550">
+    <meta name="description" content="A responsive website for up-and-coming e-bike startup Drift E-Bike Company. GIT 450 | 550">
     <meta name="author" content="Web Dev Team GIT 450/550">
 
-    <title>Drift E-Bike Company, a new e-bike brand centered around quality, design and performance - that feels premium without the tech bro energy.</title>
+    <title>Drift E-Bike Company, a new e-bike brand centered around quality, design and performance - that feels premium without the tech bro energy | Home page</title>
 
     <!-- Favicon -->
 
     <!-- Link to External Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- -->
 </head>
 
 <body id="top">
-    <!-- skip to main content -->
-    <a href="#main-content" class="skip-link btn">Skip to main content</a> 
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- header section -->
+    <!-- Header section -->
     <header class="site-header">
-        <div class="container">
-            <a href="#" class="logo">Drift Electric Bike Company</a>
+        <div class="container header">
+            <a href="index.html" class="logo">Drift Electric Bike Company</a>
 
+            <!-- Main Navigation -->
             <nav class="site-nav" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#compare">Compare Models</a></li>
-                    <li><a href="#build">Build Your E-Bike</a></li>
-                    <li><a href="#info">Info</a></li>
-                    <li><a href="#test">Schedule a Test Ride</a></li>
-                    <li><a href="#Contact">Contact</a></li>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="index.html#build">Build Your E-Bike</a></li>
+                    <li><a href="info.html">Info</a></li>
+                    <li><a href="test-ride.html">Test Ride</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Main content -->
     <main id="main-content" tabindex="-1">
-        <section class="hero">
+        <!-- Hero section -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Quality. Design. Performance.</p>
+                    
+                    <h1>A Better Ride Awaits</h1>
+                    
+                    <p>Find your new favorite E-bike today!</p>
+                    
+                    <!-- Hero button-->
+                    <div class="actions">
+                        <a href="#bikes" class="btn">Shop Now</a>
+                    </div>
+                </div>
+            
+                <div class="hero-image">
+                    <img src="images/bike%20reference.png" alt="white and coral-ish bike reference | free png">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us section -->
+        <section class="section" id="about">
             <div class="container">
-                <h1>Drift Electric Bike Company</h1>
-                <p>Better Quality, Better Design, Best Performance.</p>
+                <p class="eyebrow">ABOUT DRIFT</p>
+                <h2>Quality. Design. Performance.</h2>
+                <p class="section-intro">Drift E-Bike is a new e-bike brand centered around quality, design and performance. For those who value a premium product without the tech bro energy.</p>
+            </div>
+        </section>
+
+        <!-- E-Bikes Gallery section -->
+        <section class="section section-muted" id="bikes">
+            <div class="container">
+                <p class="eyebrow">CHECKOUT WHAT'S IN STORE</p>
+                <h2>Product Gallery</h2>
+
+                <div class="product-grid">
+                
+                <!-- Mountain Bikes -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="images/bike-trail-960%20copy.webp" alt="mountain bike concept">
+                    </div>
+                    <div class="product-body">
+                        <p class="eyebrow">TRAIL / ADVENTURE</p>
+                        <h3>Mountain Bikes</h3>
+                        <p>Built for the road less traveled.</p>
+                        <a href="product.html" class="product-link">View Bike</a>
+                    </div>
+                </article>
+
+                <!-- City Bikes -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="images/bike-urban-480%20copy.webp" alt="City/Urban bike concept">
+                    </div>
+                    <div class="product-body">
+                        <p class="eyebrow">CITY / LEISURE</p>
+                        <h3>City</h3>
+                        <p>For the everyday ride.</p>
+                        <a href="product.html" class="product-link">View Bike</a>
+                    </div>
+                </article>
+
+                <!-- Utility Bikes -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="images/bike-trail-960%20copy.webp" alt="Utility concept bike">
+                    </div>
+                    <div class="product-body">
+                        <p class="eyebrow">WORK / UTILITY</p>
+                        <h3>Utility</h3>
+                        <p>Bike w/ cargo rack. (too lazy too find another reference)</p>
+                        <a href="product.html" class="product-link">View Bike</a>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bike Comparison section | move to its own page 
+        <section class="section section-muted" id="product-comparison">
+            <div class="container">
+                <p class="eyebrow">COMPARE MODELS</p>
+                <h2>Dynamic Product Comparison</h2>
+                <p class="section-intro">This is where users will have the option to compare between 2-3 different models and see the price and specs side-by-side.
+                    <img src="images/Dynamic_Product_Comparison.png" alt="dynamic product comparison feature will go here">
+                </p>
+                <a href="#bikes" class="btn">View Models</a>
+            </div>
+        </section> -->
+
+        <!-- Choose Your Experience section -->
+        <section class="section" id="build">
+            <div class="container split">
+                <div>
+                    <p class="eyebrow">FIND YOUR RIDE</p>
+                    <h2>Choose Your E-Bike Experience</h2>
+                    <p>Find the bike that fits your style</p>
+                    <a href="#bikes" class="btn">Browse Bikes</a>
+                </div>
+
+                <div class="feature-panel">
+                    <h3>What features matter most to you?</h3>
+                    <p>Comfort &bull; Price &bull; Range &bull; Performance</p>
+                    <p class="small-note">Used the UX/UI team's verbage but we can change what will be used to filter & refine the search later </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information and Test Ride section -->
+        <section class="section" id="info">
+            <div class="container">
+                <p class="eyebrow">INFO / TEST RIDE</p>
+                <h2>Ready for your new Drift E-bike?</h2>
+                <p class="section-intro">This is where we can either have the test ride widget thingy or link to the separate page. Or put info here because I'm not sure what's going in the info hub thingy.</p>
+                <a href="test-ride.html" class="btn">Schedule a Test Ride</a>
             </div>
         </section>
     </main>
 
-<!-- Footer -->
+    <!-- Footer -->
     <footer class="site-footer">
-        <div class="container">
+        <div class="container footer-inner">
             <p>&copy; 2026 Drift Electric Bike Company. Web Dev Team, GIT 450/550. </p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="you@example.com" required>
         </div>
+
         <!-- btt -->
-        <a href="#top" class="btn">Back to top ↑</a>
+        <a href="#top" class="btt btn">Back to top ↑</a>
     </footer>
     
 <!-- Javascript Link -->
     <script src="script.js" defer></script>
 </body>
-
 </html>
