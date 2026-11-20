@@ -16,3 +16,6 @@
 * Added a section on the main home page for now for the choose your experience thingy but left it blank cause I'm not sure if that'll need a separate page too or not. 
 
 * Added id's to sections for 'product-configurator' and 'product-comparison' for the javascript functions
+
+## Changes - TC (11/19/26):
+* Added content to the info page  
