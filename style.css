@@ -391,49 +391,7 @@
         text-align: center;
     }
 
-   /* COLLAPSIBLE SECTION STYLES - These styles added Nov. 19 by TC */
-
-.collapsible {
-    background-color: var(--color-primary);
-    color: var(--color-bg);
-    cursor: pointer;
-    padding: 15px;
-    width: 80%;
-    border: none;
-    text-align: left;
-    outline: none;
-    margin-top: 20px;
-   margin-right: auto;
-   margin-left: auto;
-}
-/* Styles for the button headers that control the collapsible sections on the FAQs page. The background is navy and the text is white. */
-
-.active, .collapsible:hover {
-    background-color: var(--color-primary-hover);
-}
-/* When the user hovers over or selects the button headers that control the collapsible sections on the FAQs page, they turn a muted navy. */
-
-.content {
-    padding: 0 15px;
-    display: none;
-    overflow: hidden;
-    background-color: var(--color-hero);
-}
-/* The content for the collapsed sections is hidden by default. When it appears, it has a pale gray background. */
-
-.collapsible:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
-    color: var(--color-bg);
-    float: right;
-    margin-left: 5px;
-}
-/* Styles indicator on button headers that shows they can be expanded or collapsed. By default, it's a plus sign. */
-
-.active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
-}
-/* When the content has been expanded on the collapsed sections, the indicator on button headers becomes a minus sign, showing that they can be collapsed. */
-
+  
 
     /* FOOTER */
     .site-footer {
