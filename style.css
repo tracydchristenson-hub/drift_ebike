@@ -391,7 +391,18 @@
         text-align: center;
     }
 
-  
+   /* INFO PAGE - styles added by TC Nov. 19 - may be changed as necessary */
+
+   #about h3 {
+      margin-top: 15px;
+   }
+   /* Adds a little extra spacing above the headings for e-bike parts on Info page - TC */
+
+   .question {
+      font-weight: bold;
+      color: var(--color-primary);
+   }
+   /* Makes question text in the FAQs section bold and same color as headings on page - TC */
 
     /* FOOTER */
     .site-footer {
