@@ -369,7 +369,7 @@
     }
 
     /* PRODUCT DETAILS */
-    .detail-image {
+    /* .detail-image {
         background: var(--color-surface);
         border-radius: var(--radius-lg);
         padding: var(--space-lg);
@@ -379,7 +379,38 @@
         width: 100%;
         max-height: 390px;
         object-fit: contain;
-    }
+    } */
+    .productConfigurator {
+    display: flex;
+    gap: 20px
+}
+
+.bike-container {
+    position: relative;
+    flex: 1;
+    height: 500px;
+}
+
+.bike-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.bike-container li {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bike-container img {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.form-container {
+    flex: 1;  
+}
 
     /* CALENDAR PLACEHOLDER */
     .calendar-placeholder {
