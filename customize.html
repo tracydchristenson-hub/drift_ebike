@@ -11,6 +11,7 @@
 
     <!-- Link to External Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <script src="product_configuratior.js" defer></script>
 </head>
 
 <body id="top">
@@ -44,22 +45,56 @@
                 <a href="index.html#home" class="back-link">&larr; Back to Home</a>
 
                 <div class="split product-detail">
-                    <div class="detail-image">
-                        <img src="images/bike-trail-960%20copy.webp" alt="Drift bike concept">
-                    </div>
-
-                    <div>
-                        <p class="eyebrow">Reference Bike</p>
-                        <h1>Concept Bike</h1>
-                        <p>Interactive Product Configurator </p>
-                           
-                        <!-- Product Configurator -->
-                        <div id="product-configurator"></div>
-
-                        <!-- test ride button instead of add to cart -->
-                        <p><a href="test-ride.html" class="btn">Schedule a Test Ride</a></p>
-
-                    </div>
+                    <div class="bike-container">
+                    <ul>
+                        <li><img src="config_images/frame_cruiser.png" alt="Bike frame" class="frameStyle" ></li>
+                        <li><img src="config_images/handlebar_flat.png" alt="Bike handlebar" class="handlebar"></li>
+                        <li><img src="config_images/wheel_city.png" alt="Bike wheels" class="wheels"></li>
+                    </ul>
+                </div>
+                <div class="form-container">
+                    <form>
+                        <fieldset>
+                            <legend>Battery</legend>
+                            <input type ="radio" id ="battery-standard" name="battery" value="Standard" checked>
+                            <label for="battery-standard">Standard</label>
+                            <input type ="radio" id ="battery-extended"  name="battery" value="Extended Range">
+                            <label for="battery-extended">Extended Range</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Frame Style</legend>
+                            <input type ="radio" id ="cruiser"  name="frameStyle" value="cruiser" checked>
+                            <label for="cruiser">Cruiser</label>
+                            <input type ="radio" id ="sport"  name="frameStyle" value="sport" >
+                            <label for="sport">Sport</label>
+                            <input type ="radio" id ="urban"  name="frameStyle" value="urban" >
+                            <label for="urban">Urban</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Handlebar</legend>
+                            <input type ="radio" id ="flat"  name="handlebar" value="flat" checked>
+                            <label for="flat">Flat</label>
+                            <input type ="radio" id ="riser"  name="handlebar" value="riser">
+                            <label for="riser">Riser</label>
+                            <input type ="radio" id ="swept"  name="handlebar" value="swept">
+                            <label for="swept">Swept</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Tires</legend>
+                            <input type ="radio" id ="city"  name="wheels" value="city" checked>
+                            <label for="city">City</label>
+                            <input type ="radio" id ="creamWall"  name="wheels" value="creamWall">
+                            <label for="creamWall">Cream wall</label>
+                            <input type ="radio" id ="trail"  name="wheels" value="trail">
+                            <label for="trail">Trail</label>
+                        </fieldset>
+                        <!-- javascript will be used to filter though the different price option and update the total price -->
+                        
+                            <h2>Total Price</h2>
+                            <p id="total-price">[Dynamic price] </p>
+                            <p><a href="test-ride.html" class="btn">Schedule a Test Ride</a></p>
+                    </form>
+                </div>
                 </div>
             </div>
         </section>
