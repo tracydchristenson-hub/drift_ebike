@@ -427,7 +427,7 @@ label {
     padding: var(--space-sm) var(--space-md);
     
 }
-label:hover {
+label:hover , input[type="radio"]:checked + label {
     background: var(--color-primary);
     color: var(--color-bg);
 }
