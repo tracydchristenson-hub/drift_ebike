@@ -1,6 +1,6 @@
 /* Typography Imports */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
-/* using poppins & inter fonts as placeholders */ 
+/* using poppins & inter fonts as placeholders */
 
 /* Drift Electric Bike Company Project
    GIT 450/550 Fall Session B - 66376 | 72329
@@ -12,6 +12,7 @@
 
 /* RESET ------------------------------------------ */
 @layer reset {
+
     *,
     *::before,
     *::after {
@@ -45,16 +46,26 @@
 @layer tokens {
     :root {
         /* COLORS */
-        --color-primary: #15324B;          /* primary brand navy */
-        --color-primary-hover: #244B68;    /* muted navy hover color */
-        --color-secondary: #B54708;        /* orange secondary accent */
-        --color-text: #15324B;             /* body text */
-        --color-text-muted: #40576A;       /* secondary text */
-        --color-bg: #FFFFFF;               /* page background */
-        --color-surface: #F2F5F7;          /* alternate sections and cards */
-        --color-hero: #F2F5F7;             /* hero section background */
-        --color-border: #CBD5DC;           /* borders for headers, buttons, and cards */
-        --color-focus: #B54708;            /* keyboard focus */   
+        --color-primary: #15324B;
+        /* primary brand navy */
+        --color-primary-hover: #244B68;
+        /* muted navy hover color */
+        --color-secondary: #B54708;
+        /* orange secondary accent */
+        --color-text: #15324B;
+        /* body text */
+        --color-text-muted: #40576A;
+        /* secondary text */
+        --color-bg: #FFFFFF;
+        /* page background */
+        --color-surface: #F2F5F7;
+        /* alternate sections and cards */
+        --color-hero: #F2F5F7;
+        /* hero section background */
+        --color-border: #CBD5DC;
+        /* borders for headers, buttons, and cards */
+        --color-focus: #B54708;
+        /* keyboard focus */
 
 
         /* TYPOGRAPHY */
@@ -92,7 +103,9 @@
         line-height: var(--line-height-normal);
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
         font-family: var(--font-heading);
         line-height: var(--line-height-tight);
     }
@@ -130,6 +143,7 @@
 
 /* Layout -------------------------------- */
 @layer layout {
+
     /* CONTAINER */
     .container {
         width: min(100% - 2rem, 1280px);
@@ -196,6 +210,7 @@
     }
 
     @media (max-width: 768px) {
+
         .hero-grid,
         .split {
             grid-template-columns: 1fr;
@@ -219,6 +234,7 @@
 
 /* COMPONENTS -------------------------------- */
 @layer components {
+
     /* ACCESSIBILITY */
     .skip-link {
         position: absolute;
@@ -269,7 +285,7 @@
         padding-block: var(--space-xl);
     }
 
-    .hero-copy > p:not(.eyebrow) {
+    .hero-copy>p:not(.eyebrow) {
         color: var(--color-text-muted);
         max-width: 470px;
     }
@@ -443,4 +459,167 @@
 
 /* OVERRIDES -------------------------------- */
 @layer overrides {
+
+    /* Location Selection */
+    .location-options {
+        display: grid;
+        gap: var(--space-sm);
+        margin-top: var(--space-lg);
+    }
+
+    .location-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        width: 100%;
+        padding: var(--space-md);
+
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-md);
+
+        background: var(--color-bg);
+        color: var(--color-text);
+
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .location-card strong {
+        font-family: var(--font-heading);
+        font-size: var(--text-lg);
+    }
+
+    .location-card span {
+        color: var(--color-text-muted);
+    }
+
+
+    /* Date Selection */
+    #test-date {
+        width: 100%;
+        padding: var(--space-sm);
+        margin-top: var(--space-md);
+
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+
+        background: var(--color-bg);
+        color: var(--color-text);
+
+        font: inherit;
+    }
+
+
+    /* Time Selection */
+    .time-slots {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-sm);
+        margin-top: var(--space-md);
+    }
+
+    .time-slot {
+        width: 100%;
+        min-height: 48px;
+        padding: var(--space-sm);
+
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-md);
+
+        background: var(--color-bg);
+        color: var(--color-text);
+
+        font: inherit;
+        font-weight: var(--font-weight-semibold);
+
+        cursor: pointer;
+    }
+
+
+    /* Booking Form */
+    #booking-form {
+        margin-top: var(--space-lg);
+    }
+
+    #booking-form label {
+        display: block;
+        margin-top: var(--space-md);
+
+        font-weight: var(--font-weight-semibold);
+        text-align: left;
+    }
+
+    #booking-form input,
+    #booking-form select,
+    #booking-form textarea {
+        width: 100%;
+        padding: var(--space-sm);
+        margin-top: var(--space-sm);
+
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+
+        background: var(--color-bg);
+        color: var(--color-text);
+
+        font: inherit;
+    }
+
+    #booking-form textarea {
+        resize: vertical;
+    }
+
+    #booking-form .btn {
+        border: 0;
+        margin-top: var(--space-md);
+        cursor: pointer;
+    }
+
+
+    /* Selected States */
+    .location-card.is-selected,
+    .time-slot.is-selected {
+        border-color: var(--color-secondary);
+        background: var(--color-surface);
+    }
+
+
+    /* Booked Time */
+    .time-slot.is-booked,
+    .time-slot:disabled {
+        background: var(--color-surface);
+        color: var(--color-text-muted);
+
+        cursor: not-allowed;
+        opacity: 0.65;
+    }
+
+
+    /* Hover */
+    .location-card:hover,
+    .time-slot:not(:disabled):hover {
+        border-color: var(--color-primary);
+    }
+
+
+    /* Keyboard Focus */
+    .location-card:focus-visible,
+    .time-slot:focus-visible,
+    #test-date:focus-visible,
+    #booking-form input:focus-visible,
+    #booking-form select:focus-visible,
+    #booking-form textarea:focus-visible {
+        outline: 3px solid var(--color-focus);
+        outline-offset: 3px;
+    }
+
+
+    /* Responsive */
+    @media (max-width: 520px) {
+        .time-slots {
+            grid-template-columns: 1fr;
+        }
+    }
 }
