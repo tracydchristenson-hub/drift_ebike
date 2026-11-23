@@ -17,27 +17,13 @@ const booking = {
 
 // DOM
 const locationButtons = document.querySelectorAll(".location-card");
-
-const schedulingMessage =
-    document.querySelector("#scheduling-message");
-
-const dateSection =
-    document.querySelector("#date-section");
-
-const dateInput =
-    document.querySelector("#test-date");
-
-const timeSection =
-    document.querySelector("#time-section");
-
-const timeSlots =
-    document.querySelector("#time-slots");
-
-const bookingForm =
-    document.querySelector("#booking-form");
-
-const confirmation =
-    document.querySelector("#confirmation");
+const schedulingMessage = document.querySelector("#scheduling-message");
+const dateSection = document.querySelector("#date-section");
+const dateInput = document.querySelector("#test-date");
+const timeSection = document.querySelector("#time-section");
+const timeSlots = document.querySelector("#time-slots");
+const bookingForm = document.querySelector("#booking-form");
+const confirmation = document.querySelector("#confirmation");
 
 
 // Prevent past dates
@@ -144,15 +130,9 @@ function renderTimes() {
 
 // SUMMARY
 function updateSummary() {
-
-    document.querySelector("#summary-location")
-        .textContent = booking.location;
-
-    document.querySelector("#summary-date")
-        .textContent = formatDate(booking.date);
-
-    document.querySelector("#summary-time")
-        .textContent = booking.time;
+    document.querySelector("#summary-location").textContent = booking.location;
+    document.querySelector("#summary-date").textContent = formatDate(booking.date);
+    document.querySelector("#summary-time").textContent = booking.time;
 }
 
 
@@ -190,22 +170,10 @@ bookingForm.addEventListener("submit", (event) => {
         location: booking.location,
         date: booking.date,
         time: booking.time,
-
-        name:
-            document.querySelector("#customer-name")
-                .value.trim(),
-
-        email:
-            document.querySelector("#customer-email")
-                .value.trim(),
-
-        bike:
-            document.querySelector("#bike-selection")
-                .value,
-
-        question:
-            document.querySelector("#customer-question")
-                .value.trim()
+        name: document.querySelector("#customer-name").value.trim(),
+        email: document.querySelector("#customer-email").value.trim(),
+        bike: document.querySelector("#bike-selection").value,
+        question: document.querySelector("#customer-question").value.trim()
     };
 
 
@@ -213,11 +181,7 @@ bookingForm.addEventListener("submit", (event) => {
 
     reservations.push(reservation);
 
-    localStorage.setItem(
-        "driftTestRideReservations",
-        JSON.stringify(reservations)
-    );
-
+    localStorage.setItem("driftTestRideReservations", JSON.stringify(reservations));
 
     showConfirmation(reservation);
 });
@@ -230,17 +194,10 @@ function showConfirmation(reservation) {
     timeSection.hidden = true;
     bookingForm.hidden = true;
 
-    document.querySelector("#confirmation-location")
-        .textContent = reservation.location;
-
-    document.querySelector("#confirmation-date")
-        .textContent = formatDate(reservation.date);
-
-    document.querySelector("#confirmation-time")
-        .textContent = reservation.time;
-
-    document.querySelector("#confirmation-bike")
-        .textContent = reservation.bike;
+    document.querySelector("#confirmation-location").textContent = reservation.location;
+    document.querySelector("#confirmation-date").textContent = formatDate(reservation.date);
+    document.querySelector("#confirmation-time").textContent = reservation.time;
+    document.querySelector("#confirmation-bike").textContent = reservation.bike;
 
     schedulingMessage.textContent =
         "Your reservation is complete.";
@@ -316,32 +273,18 @@ function isBooked(location, date, time) {
 
 // TODAY
 function getToday() {
-
     const today = new Date();
-
     const year = today.getFullYear();
-
-    const month =
-        String(today.getMonth() + 1)
-            .padStart(2, "0");
-
-    const day =
-        String(today.getDate())
-            .padStart(2, "0");
-
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
 }
 
 
 // DATE DISPLAY
 function formatDate(dateString) {
-
-    const [year, month, day] =
-        dateString.split("-").map(Number);
-
-    const date =
-        new Date(year, month - 1, day);
-
+    const [year, month, day] = dateString.split("-").map(Number);
+    const date = new Date(year, month - 1, day);
     return new Intl.DateTimeFormat(
         "en-US",
         {
