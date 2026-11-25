@@ -56,32 +56,32 @@
                     <form>
                         <fieldset>
                             <legend>Battery</legend>
-                            <input type ="radio" id ="battery-standard" name="battery" value="Standard" checked>
+                            <input type ="radio" id ="battery-standard" name="battery" value="Standard" data-price="550" checked>
                             <label for="battery-standard">Standard</label>
-                            <input type ="radio" id ="battery-extended"  name="battery" value="Extended Range">
+                            <input type ="radio" id ="battery-extended"  name="battery" value="Extended Range" data-price="750">
                             <label for="battery-extended">Extended Range</label>
                         </fieldset>
                         <fieldset>
                             <legend>Frame Style</legend>
-                            <input type ="radio" id ="cruiser"  name="frameStyle" value="cruiser" checked>
+                            <input type ="radio" id ="cruiser"  name="frameStyle" value="cruiser" data-price="500" checked>
                             <label for="cruiser">Cruiser</label>
-                            <input type ="radio" id ="sport"  name="frameStyle" value="sport" >
+                            <input type ="radio" id ="sport"  name="frameStyle" value="sport" data-price="600">
                             <label for="sport">Sport</label>
-                            <input type ="radio" id ="urban"  name="frameStyle" value="urban" >
+                            <input type ="radio" id ="urban"  name="frameStyle" value="urban" data-price="300">
                             <label for="urban">Urban</label>
                         </fieldset>
                         <fieldset>
                             <legend>Handlebar</legend>
-                            <input type ="radio" id ="flat"  name="handlebar" value="flat" checked>
+                            <input type ="radio" id ="flat"  name="handlebar" value="flat" data-price="0" checked>
                             <label for="flat">Flat</label>
-                            <input type ="radio" id ="riser"  name="handlebar" value="riser">
+                            <input type ="radio" id ="riser"  name="handlebar" value="riser" data-price="20">
                             <label for="riser">Riser</label>
-                            <input type ="radio" id ="swept"  name="handlebar" value="swept">
+                            <input type ="radio" id ="swept"  name="handlebar" value="swept" data-price="30">
                             <label for="swept">Swept</label>
                         </fieldset>
                         <fieldset>
                             <legend>Tires</legend>
-                            <input type ="radio" id ="city"  name="wheels" value="city" checked>
+                            <input type ="radio" id ="city"  name="wheels" value="city" data-price="20" checked>
                             <label for="city">City</label>
                             <input type ="radio" id ="creamWall"  name="wheels" value="creamwall">
                             <label for="creamWall">Cream wall</label>
@@ -90,8 +90,13 @@
                         </fieldset>
                         <!-- javascript will be used to filter though the different price option and update the total price -->
                         
-                            <h2>Total Price</h2>
-                            <p id="total-price">[Dynamic price] </p>
+                            <h2>Price Breakdown</h2>
+                            <p id="battery">Battery Price: $550</p>
+                            <p id="frame">Frame Price: $500</p>
+                            <p id="handlebar">Handlebar Price: $0 (No extra charge)</p>
+                            <p id="tires">Tire Price: $20</p>
+                            <p id="totalPrice">Total Price: $1070</p>
+
                             <p><a href="test-ride.html" class="btn">Schedule a Test Ride</a></p>
                     </form>
                 </div>
