@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Drift Electric Bike Company student website prototype. GIT 450/550.">
+    <meta name="description"
+        content="A responsive website for up-and-coming e-bike startup Drift E-Bike Company. GIT 450 | 550">
     <meta name="author" content="Web Dev Team GIT 450/550">
 
-    <title>Test Ride Page for Drift E-Bike Company</title>
+    <title>Drift E-Bike Company, a new e-bike brand centered around quality, design and performance - that feels premium
+        without the tech bro energy | Home page</title>
 
     <!-- Favicon -->
 
@@ -38,43 +41,113 @@
         </div>
     </header>
 
-    <!-- Main content -->
+
+    <!-- Main Content -->
     <main id="main-content" tabindex="-1">
-        <!-- Test Ride section -->
+
         <section class="section">
             <div class="container">
                 <p class="eyebrow">EXPERIENCE DRIFT E-BIKES</p>
                 <h1>Schedule a Test Ride</h1>
-                <p class="section-intro">A mockup page for the test ride / locations page</p>
+                <p class="section-intro">Choose a location, date, and time to schedule yourDrift E-Bike test ride.</p>
 
                 <div class="split align-start">
-                    <!-- Location concept -->
+                    <!-- Location Selection -->
                     <section class="feature-panel">
-                        <h2>Find a Location</h2>
-                        <p>Choose between two locations to test ride a Drift E-bike</p>
-                        <div class="calendar-placeholder">
-                            <strong>Appointment Calendar</strong>
-                            <p>We can add the widget thingy here</p>
+                        <h2>Choose a Location</h2>
+                        <p>Select one of two locations for your test ride.</p>
+                        <div class="location-options">
+                            <button type="button" class="location-card" data-location="Downtown Location">
+                                <strong>Downtown Location</strong>
+                                <span>Test Ride Center</span>
+                            </button>
+
+                            <button type="button" class="location-card" data-location="North Location">
+                                <strong>North Location </strong>
+                                <span>Test Ride Center</span>
+                            </button>
                         </div>
                     </section>
 
-                    <!-- Contact information -->
-                    <section class="feature-panel" id="contact">
-                        <h2>Contact Details</h2>
-                        <p>This area will contain the test-ride request form.</p> <p>&bull;Name  &bull;Email &bull;Bike Selection (mountain, city, utility) and a question textarea </p><br>
-                        <a href="index.html#bikes" class="btn">Browse E-Bikes</a>
+                    <!-- Scheduling -->
+                    <section class="feature-panel">
+                        <h2>Schedule Your Test Ride</h2>
+                        <p id="scheduling-message">Choose a location to view available appointments.</p>
+                        <!-- Date Selection -->
+                        <div id="date-section" class="calendar-placeholder" hidden>
+                            <label for="test-date">
+                                <strong>Choose a Date</strong>
+                            </label>
+                            <input type="date" id="test-date" name="test-date">
+                        </div>
+
+                        <!-- Time Selection -->
+                        <div id="time-section" class="calendar-placeholder" hidden>
+                            <strong>Choose a Time</strong>
+                            <div id="time-slots" class="time-slots" aria-live="polite"></div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <form id="booking-form" hidden>
+                            <div class="calendar-placeholder">
+                                <h3>Contact Details</h3>
+                                <label for="customer-name">Name</label>
+                                <input type="text" id="customer-name" name="customer-name" autocomplete="name" required>
+                                <label for="customer-email">Email</label>
+                                <input type="email" id="customer-email" name="customer-email" autocomplete="email"
+                                    required>
+                                <label for="bike-selection">Bike Selection</label>
+                                <select id="bike-selection" name="bike-selection" required>
+                                    <option value="">Select a bike type</option>
+                                    <option value="Commuter">Commuter</option>
+                                    <option value="City">City</option>
+                                    <option value="Adventure">Adventure</option>
+                                </select>
+                                <label for="customer-question">Questions (optional)</label>
+                                <textarea id="customer-question" name="customer-question" rows="4"></textarea>
+                            </div>
+
+                            <!-- Appointment Summary -->
+                            <div class="calendar-placeholder">
+                                <h3>Appointment Summary</h3>
+                                <p><strong>Location:</strong><span id="summary-location"></span></p>
+                                <p><strong>Date:</strong><span id="summary-date"></span></p>
+                                <p><strong>Time:</strong><span id="summary-time"></span></p>
+                                <button type="submit" class="btn">Confirm Test Ride</button>
+                            </div>
+                        </form>
+
+                        <!-- Confirmation -->
+                        <div id="confirmation" class="calendar-placeholder" aria-live="polite" hidden>
+                            <h3>Test Ride Confirmed!</h3>
+                            <p>Your Drift E-Bike test ride has been scheduled.</p>
+                            <p><strong>Location:</strong><span id="confirmation-location"></span></p>
+                            <p><strong>Date:</strong><span id="confirmation-date"></span></p>
+                            <p><strong>Time:</strong><span id="confirmation-time"></span></p>
+                            <p><strong>Bike:</strong><span id="confirmation-bike"></span></p>
+                            <button type="button" class="btn" id="book-another">Book Another Test Ride</button>
+                        </div>
                     </section>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer section -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container footer-inner">
-            <p>&copy; 2026 Drift Electric Bike Company. Web Dev Team, GIT 450/550.</p>
-            <a href="#top" class="footer-link">Back to top &uarr;</a>
+            <p>&copy; 2026 Drift Electric Bike Company. Web Dev Team, GIT 450/550. </p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="you@example.com" required>
         </div>
+
+        <!-- btt -->
+        <a href="#top" class="btt btn">Back to top ↑</a>
     </footer>
+
+    <!-- Test Ride JavaScript -->
+    <script src="test-ride.js"></script>
+
 </body>
+
 </html>
