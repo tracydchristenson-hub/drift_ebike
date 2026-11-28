@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Drift Electric Bike Company student website prototype. GIT 450/550.">
+    <meta name="author" content="Web Dev Team GIT 450/550">
+
+    <title>Drift Electric Bikes | Products Page</title>
+
+    <!-- Link to External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking to Sydney's product configurator -->
+    <script src="product_configuratior.js" defer></script>
+
+</head>
+
+<body id="top">
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header section -->
+    <header class="site-header">
+        <div class="container header">
+            <a href="index.html" class="logo">
+                <img src="images/Drift_Logo_Dark.svg" alt="Drift Electric Bike Company — Home"></a>
+
+            <!-- Main Navigation -->
+            <nav class="site-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="test-ride.html">Test Ride</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" tabindex="-1">
+
+        <!-- Product detail section | Added id
+             for product configurator on each product page. 
+             Will split product page into separate pages by model ltr -->
+
+        <section class="section" id="product-detail">
+            <div class="container">
+                <a href="index.html#bikes" class="back-link">&larr; Back to bikes</a>
+
+                <div class="split product-detail">
+                    <div class="detail-image">
+                        <img src="images/product-image-photo-team-model.webp" alt="Drift mountain bike concept">
+                    </div>
+
+                    <div>
+                        <p class="eyebrow">Built For the Trail</p>
+                        <h1>Utility Bike</h1>
+
+                        <p class="section-intro">
+                            Our Communter style utility bike is idea for carrying heavy loads. It’s hard-wearing and offers great control on city streets, even if those city streets get a little bumpy. Comes with our stylish and sturdy creamwall tires.</p>
+
+                      <h2>Product Details</h2>
+
+                      <h3>Base Specs</h3>
+
+                      <ul>
+                        <li>Battery - Standard (add extended battery for $250)</li>
+                        <li>Frame - Cruiser</li>
+                        <li>Handlebar - Flat (plus $20 for riser option or plus $30 for swept option)</li>
+                        <li>Tires - Creamwall</li>
+                      </ul>
+
+                      <p><strong>Base Price:</strong> $1,075</p>
+
+                      <h3>Recommendations</h3>
+
+                      <ul>
+                        <li>Recommended for carrying heavy loads, good for city commutes</li>
+                        <li>Not recommended for rough terrain</li>
+                      </ul>
+                        
+                        <!-- Link to Product Configurator -->
+                    <div class="actions">
+                        <a href="#product-configurator" class="btn">
+                            Customize Your Bike
+                        </a>
+
+                        <a href="test-ride.html" class="btn btn-light">
+                            Schedule a Test Ride
+                        </a>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Configurator Section -->
+        <section class="section section-muted" id="product-configurator">
+            <div class="container">
+
+                <p class="eyebrow">MAKE IT YOURS</p>
+                <h2>Customize Your E-Bike</h2>
+                <p class="section-intro">
+                    Build an e-bike that fits your riding style.
+                </p>
+
+                <div class="split product-detail">
+                    <div class="bike-container">
+                    <ul>
+                        <li><img src="config_images/frame_cruiser.png" alt="Bike frame" class="frameStyle" ></li>
+                        <li><img src="config_images/handlebar_flat.png" alt="Bike handlebar" class="handlebar"></li>
+                        <li><img src="config_images/wheel_city.png" alt="Bike wheels" class="wheels"></li>
+                    </ul>
+                </div>
+                <div class="form-container">
+                    <form>
+                        <fieldset>
+                            <legend>Battery</legend>
+                            <input type ="radio" id ="battery-standard" name="battery" value="Standard" data-price="550" checked>
+                            <label for="battery-standard">Standard</label>
+                            <input type ="radio" id ="battery-extended"  name="battery" value="Extended Range" data-price="750">
+                            <label for="battery-extended">Extended Range</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Frame Style</legend>
+                            <input type ="radio" id ="cruiser"  name="frameStyle" value="cruiser" data-price="500" checked>
+                            <label for="cruiser">Cruiser</label>
+                            <input type ="radio" id ="sport"  name="frameStyle" value="sport" data-price="600">
+                            <label for="sport">Sport</label>
+                            <input type ="radio" id ="urban"  name="frameStyle" value="urban" data-price="300">
+                            <label for="urban">Urban</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Handlebar</legend>
+                            <input type ="radio" id ="flat"  name="handlebar" value="flat" data-price="0" checked>
+                            <label for="flat">Flat</label>
+                            <input type ="radio" id ="riser"  name="handlebar" value="riser" data-price="20">
+                            <label for="riser">Riser</label>
+                            <input type ="radio" id ="swept"  name="handlebar" value="swept" data-price="30">
+                            <label for="swept">Swept</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Tires</legend>
+                            <input type ="radio" id ="city"  name="wheels" value="city" data-price="20" checked>
+                            <label for="city">City</label>
+                            <input type ="radio" id ="creamWall"  name="wheels" value="creamwall" data-price="25">
+                            <label for="creamWall">Cream wall</label>
+                            <input type ="radio" id ="trail"  name="wheels" value="trail" data-price="30">
+                            <label for="trail">Trail</label>
+                        </fieldset>
+                        <!-- javascript will be used to filter though the different price option and update the total price -->
+                        
+                            <h2>Price Breakdown</h2>
+                            <p id="battery">Battery Price: $550</p>
+                            <p id="frame">Frame Price: $500</p>
+                            <p id="handlebar">Handlebar Price: $0 (No extra charge)</p>
+                            <p id="tires">Tire Price: $20</p>
+                            <p id="totalPrice">Total Price: $1070</p>
+
+                            <p>
+                                <a href="test-ride.html" class="btn">
+                                    Schedule a Test Ride
+                                </a>
+                            </p>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 Drift Electric Bike Company. Web Dev Team, GIT 450/550. </p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="you@example.com" required>
+        </div>
+
+        <!-- btt -->
+        <a href="#top" class="btt btn">Back to top ↑</a>
+    </footer>
+
+</body>
+</html>
