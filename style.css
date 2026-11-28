@@ -954,6 +954,13 @@ legend{
    }
    /* Makes question text in the FAQs section bold and same color as headings on page - TC */
 
+    #faqs img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* Centers image on the Info page - TC */
+
     /* PRODUCT PAGES - styles added by TC Nov. 28 - may be changed as necessary */
 
     .bike-details h3 {
