@@ -943,6 +943,7 @@ legend{
 
     #about dt {
       font-weight: bold;
+        margin-left: 20px;
         margin-top: 5px;
         margin-bottom: 5px;
    }
@@ -965,12 +966,14 @@ legend{
 
     .bike-details h3 {
       margin-top: 15px;
+        margin-bottom: 10px;
    }
    /* Adds a little extra spacing above the headings for e-bike details on product pages - TC */
 
     .bike-details ul {
         top-margin: 15px;
-        list-style-type: circle;
+        margin-left: 20px;
+        list-style-type: disc;
     }
     /* Adds styles and spacing to unordered lists - TC */
 
