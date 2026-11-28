@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Drift Electric Bike Company student website prototype. GIT 450/550.">
+    <meta name="author" content="Web Dev Team GIT 450/550">
+
+    <title>Drift Electric Bikes | Products Page</title>
+
+    <!-- Link to External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking to Sydney's product configurator -->
+    <script src="product_configuratior.js" defer></script>
+
+</head>
+
+<body id="top">
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header section -->
+    <header class="site-header">
+        <div class="container header">
+            <a href="index.html" class="logo">
+                <img src="images/Drift_Logo_Dark.svg" alt="Drift Electric Bike Company — Home">
+
+            <!-- Main Navigation -->
+            <nav class="site-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="bikes.html" aria-current="page">Bikes</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="test-ride.html">Test Ride</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" tabindex="-1">
+
+        <!-- Product detail section | Added id
+             for product configurator on each product page. 
+             Will split product page into separate pages by model ltr -->
+
+        <section class="section" id="product-detail">
+            <div class="container">
+                <a href="index.html#bikes" class="back-link">&larr; Back to bikes</a>
+
+                <div class="split product-detail">
+                    <div class="detail-image">
+                        <img src="images/product-image-photo-team-model.webp" alt="Drift mountain bike concept">
+                    </div>
+
+                    <div>
+                        <p class="eyebrow">Built For Real Life</p>
+                        <h1>Model 01</h1>
+
+                        <p class="section-intro">
+                            Made for the daily commute, the coffee run and everything in between
+                        </p>
+                        
+                        <!-- Link to Product Configurator -->
+                    <div class="actions">
+                        <a href="#product-configurator" class="btn">
+                            Customize Your Bike
+                        </a>
+
+                        <a href="test-ride.html" class="btn btn-light">
+                            Schedule a Test Ride
+                        </a>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Configurator Section -->
+        <section class="section section-muted" id="product-configurator">
+            <div class="container">
+
+                <p class="eyebrow">MAKE IT YOURS</p>
+                <h2>Customize Your E-Bike</h2>
+                <p class="section-intro">
+                    Build an e-bike that fits your riding style.
+                </p>
+
+                <div class="split product-detail">
+
+                    <!-- Dynamic Bike Preview -->
+                    <div class="bike-container">
+                        <ul>
+                            <li>
+                                <img src="config_images/frame_cruiser.png"
+                                    alt="Bike frame"
+                                    class="frameStyle">
+                            </li>
+                            <li>
+                                <img src="config_images/handlebar_flat.png"
+                                    alt="Bike handlebar"
+                                    class="handlebar">
+                            </li>
+                            <li>
+                                <img src="config_images/wheel_city.png"
+                                    alt="Bike wheels"
+                                    class="wheels">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Product Configuration Options -->
+                    <div class="form-container">
+                        <form>
+
+                            <!-- Battery -->
+                            <fieldset>
+                                <legend>Battery</legend>
+
+                                <input type="radio" id="battery-standard"
+                                    name="battery" value="Standard" checked>
+                                <label for="battery-standard">Standard</label>
+
+                                <input type="radio" id="battery-extended"
+                                    name="battery" value="Extended Range">
+                                <label for="battery-extended">Extended Range</label>
+                            </fieldset>
+
+                            <!-- Frame Style -->
+                            <fieldset>
+                                <legend>Frame Style</legend>
+
+                                <input type="radio" id="cruiser"
+                                    name="frameStyle" value="cruiser" checked>
+                                <label for="cruiser">Cruiser</label>
+
+                                <input type="radio" id="sport"
+                                    name="frameStyle" value="sport">
+                                <label for="sport">Sport</label>
+
+                                <input type="radio" id="urban"
+                                    name="frameStyle" value="urban">
+                                <label for="urban">Urban</label>
+                            </fieldset>
+
+                            <!-- Handlebar -->
+                            <fieldset>
+                                <legend>Handlebar</legend>
+
+                                <input type="radio" id="flat"
+                                    name="handlebar" value="flat" checked>
+                                <label for="flat">Flat</label>
+
+                                <input type="radio" id="riser"
+                                    name="handlebar" value="riser">
+                                <label for="riser">Riser</label>
+
+                                <input type="radio" id="swept"
+                                    name="handlebar" value="swept">
+                                <label for="swept">Swept</label>
+                            </fieldset>
+
+                            <!-- Tires -->
+                            <fieldset>
+                                <legend>Tires</legend>
+
+                                <input type="radio" id="city"
+                                    name="wheels" value="city" checked>
+                                <label for="city">City</label>
+
+                                <input type="radio" id="creamWall"
+                                    name="wheels" value="creamwall">
+                                <label for="creamWall">Cream wall</label>
+
+                                <input type="radio" id="trail"
+                                    name="wheels" value="trail">
+                                <label for="trail">Trail</label>
+                            </fieldset>
+
+                            <!-- Dynamic Pricing -->
+                            <h2>Total Price</h2>
+                            <p id="total-price">[Dynamic price]</p>
+
+                            <p>
+                                <a href="test-ride.html" class="btn">
+                                    Schedule a Test Ride
+                                </a>
+                            </p>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 Drift Electric Bike Company. Web Dev Team, GIT 450/550. </p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="you@example.com" required>
+        </div>
+
+        <!-- btt -->
+        <a href="#top" class="btt btn">Back to top ↑</a>
+    </footer>
+
+</body>
+</html>

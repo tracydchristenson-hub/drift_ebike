@@ -1,6 +1,6 @@
-/* Typography Imports */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
-/* using poppins & inter fonts as placeholders */
+/* Typography Imports /25
+    removed since we're using Georgia & aria which are system fonts */
+
 
 /* Drift Electric Bike Company Project
    GIT 450/550 Fall Session B - 66376 | 72329
@@ -45,32 +45,36 @@
 /* Design Tokens -------------------------------- */
 @layer tokens {
     :root {
-        /* COLORS */
-        --color-primary: #15324B;
-        /* primary brand navy */
-        --color-primary-hover: #244B68;
-        /* muted navy hover color */
-        --color-secondary: #B54708;
-        /* orange secondary accent */
-        --color-text: #15324B;
+        /* NEW COLORS */
+        --color-primary: #233E35;
+        /* primary brand forest green */
+        --color-primary-hover: #355548;
+        /* muted forest hover color */
+        --color-secondary: #FFD1AA;
+        /* peach secondary accent */
+        --color-text: #233E35;
         /* body text */
-        --color-text-muted: #40576A;
+        --color-text-muted: #60733D;
         /* secondary text */
-        --color-bg: #FFFFFF;
+        --color-bg: #F5F4EE;
         /* page background */
-        --color-surface: #F2F5F7;
+        --color-surface: #F5F4EE;
         /* alternate sections and cards */
-        --color-hero: #F2F5F7;
+        --color-hero: #233E35;
         /* hero section background */
-        --color-border: #CBD5DC;
+        --color-border: #60733D;
         /* borders for headers, buttons, and cards */
-        --color-focus: #B54708;
+        --color-focus: #233E35;
         /* keyboard focus */
+        --color-white: #FFFFFF;
+        /* white product image backgrounds */
+        --color-moss-light: #C4D1A5;
+        /* accessible moss text on forest background */
 
 
         /* TYPOGRAPHY */
-        --font-body: 'Inter', Arial, sans-serif;
-        --font-heading: 'Poppins', Arial, sans-serif;
+        --font-body: Arial, sans-serif;
+        --font-heading: Georgia, serif;
         --text-sm: 0.875rem;
         --text-base: 1rem;
         --text-lg: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
@@ -197,6 +201,36 @@
         align-items: start;
     }
 
+    /* PRODUCT CONFIGURATOR RESPONSIVENESS */
+    .product-detail:has(.bike-container) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1rem, 4vw, 3rem);
+        align-items: start;
+    }
+
+    .product-detail .bike-container,
+    .product-detail .form-container {
+        min-width: 0;
+        width: 100%;
+    }
+
+    /* Homepage Education Grid */
+    .education-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    /* Homepage - Our philosophy section */
+    .philosophy-panel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+    }
+
     /* RESPONSIVE LAYOUT */
     @media (max-width: 900px) {
         .header {
@@ -207,9 +241,26 @@
         .site-nav ul {
             justify-content: flex-start;
         }
+
+        /* added responsive tablet/mobile layout for p. config. */
+        .product-detail:has(.bike-container) {
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+
+        /* homepage education-grid tablet */
+        .education-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        } 
     }
 
     @media (max-width: 768px) {
+
+        .hero-grid {
+            gap: var(--space-md);
+            padding-block: var(--space-lg);
+            min-height: auto;
+        }
 
         .hero-grid,
         .split {
@@ -228,6 +279,15 @@
 
         .site-nav ul {
             gap: var(--space-sm);
+        }
+
+        .education-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .philosophy-panel {
+            align-items: flex-start;
+            flex-direction: column;
         }
     }
 }
@@ -264,29 +324,126 @@
         font-family: var(--font-heading);
         font-size: var(--text-lg);
         font-weight: var(--font-weight-bold);
+        text-decoration: none;
     }
 
+    .logo img {
+        display: block;
+        width: 130px;
+        height: auto;
+    }
+
+    /* matching the UX/UI team's underline + adding animated underline js 11/24 */
     .site-nav a {
         color: var(--color-text);
         font-size: var(--text-sm);
         font-weight: var(--font-weight-semibold);
+        position: relative;
+        text-decoration: none;
+    }
+
+    .site-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -12px;
+        width: 100%;
+        height: 3px;
+        background-color: currentColor;
+        
+        /* animation */ 
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+
+    /* hover/keyboard focus states */
+    .site-nav a:hover::after,
+    .site-nav a:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+    /* keeps the underline on the page the user is at */
+    .site-nav a[aria-current="page"]::after {
+        transform: scaleX(1);
+    }
+
+    /* reduced motion accessibility */
+    @media (prefers-reduced-motion: reduce) {
+        .site-nav a::after {
+            transition: none;
+        }
+    }
+
+    /* doing the same thing to the back links & view bike links */
+    .back-link,
+    .product-link {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .back-link::after,
+    .product-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -12px;
+        width: 100%;
+        height: 2px;
+        background-color: currentColor;
+
+        /* animations */
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+
+    /* hover/keyboard focus states */
+    .back-link:hover::after,
+    .back-link:focus-visible::after,
+    .product-link:hover::after,
+    .product-link:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+    /* reduced motion accessibility */
+    @media (prefers-reduced-motion: reduce) {
+        .back-link::after,
+        .product-link::after {
+            transition: none;
+        }
     }
 
     /* HERO */
     .hero {
         background: var(--color-hero);
-    }
-
-    .hero-grid {
-        min-height: 430px;
+        background-image: url("images/hero-mockup.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        aspect-ratio: 8 / 3;
+        display: grid;
+        align-items: center;
     }
 
     .hero-copy {
+        max-width: 40%;
         padding-block: var(--space-xl);
     }
 
+    .hero-copy h1{
+        text-wrap: balance;
+        max-width: none;
+        font-family: var(--font-heading);
+        font-style: italic;
+        font-size: clamp(2rem, 4.5vw, 6rem);
+        line-height: var(--line-height-tight);
+        color: var(--color-secondary)
+    }
+
     .hero-copy>p:not(.eyebrow) {
-        color: var(--color-text-muted);
+        color: var(--color-bg);
         max-width: 470px;
     }
 
@@ -294,6 +451,75 @@
         width: 100%;
         max-height: 370px;
         object-fit: contain;
+    }
+
+    .hero .btn {
+        background-color: #FFD1AA;
+        color: #233E35;
+        border-color: #FFD1AA;
+    }
+
+    .hero .btn-light {
+        background-color: #233E35;
+        color: #F5F4EE;
+        border: 1px solid #F5F4EE;
+    }
+
+    /* responsive hero banner 11/27 */
+    @media (max-width: 900px) {
+        .hero {
+            background: var(--color-hero);
+            aspect-ratio: auto;
+            min-height: auto;
+            padding: 0;
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .hero-grid {
+            grid-template-columns: minmax(0, 1fr);
+            padding-block: var(--space-lg);
+            min-height: auto;
+        }
+
+        .hero-copy {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            padding-block: var(--space-lg);
+            padding-inline: var(--space-sm);
+        }
+
+        .hero-copy h1 {
+            font-size: var(--text-2xl);
+        }
+
+        .hero::after {
+            content: "";
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-image: url("images/hero-biker.png");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    @media (max-width: 520px) {
+
+        /* responsive hero banner buttons */
+        .hero .actions {
+            flex-direction: column;
+            align-items: stretch;
+            gap: var(--space-sm);
+        }
+
+        .hero .btn {
+            width: 100%;
+            min-width: 0;
+            padding: var(--space-sm) var(--space-md);
+            text-align: center;
+        }
     }
 
     /* BUTTONS */
@@ -323,12 +549,17 @@
 
     /* TEXT */
     .eyebrow {
-        color: var(--color-secondary);
+        color: var(--color-border);
         font-size: var(--text-sm);
         font-weight: var(--font-weight-bold);
         letter-spacing: 0.1em;
         margin-bottom: var(--space-sm);
     }
+
+    .hero .eyebrow {
+        color: var(--color-secondary);
+    }
+    
 
     .section-intro {
         max-width: 670px;
@@ -351,7 +582,7 @@
     }
 
     .product-image {
-        background: var(--color-surface);
+        background: var(--color-bg);               /* changed the background to white per prof. suggestions */
         padding: var(--space-md);
     }
 
@@ -384,13 +615,152 @@
         padding: var(--space-lg);
     }
 
-    /* PRODUCT DETAILS */
-    /* .detail-image {
-        background: var(--color-surface);
+    /* Homepage - Education Cards 11/24 */
+    .education-grid .product-card {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .education-grid .product-image {
+        aspect-ratio: 16 / 9;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .education-grid .product-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .education-grid .product-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.75rem;
+    }
+
+    .education-grid h3 {
+        font-size: var(--text-lg);
+        text-wrap: balance;
+    }
+
+    .education-grid .product-link {
+        align-self: flex-start;
+        margin-top: auto;
+    }
+
+    /* battery & charging card */
+    .education-featured {
+        background-color: var(--color-primary);
+        color: var(--color-bg);
+    }
+
+    .education-featured .product-body {
+        background-color: transparent;
+    }
+
+    .education-featured h3,
+    .education-featured p,
+    .education-featured .product-link {
+        color: var(--color-bg);
+    }
+
+    .education-featured .education-stat {
+        font-size: var(--text-xl);
+        font-weight: var(--font-weight-bold);
+        line-height: var(--line-height-tight);
+        margin-top: var(--space-sm);
+    }
+
+    .education-featured .product-link:hover {
+        color: var(--color-bg);
+    }
+
+    /* Homepage - Test Ride promo thingy 11/25 */
+    .test-ride-promo {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
+        gap: var(--space-lg);
+    }
+
+    .test-ride-image {
+        min-width: 0;
+        border-radius: 0.75rem;
+        overflow: hidden;
+    }
+
+    .test-ride-image img {
+        display: block;
+        width: 100%;
+        height: auto;  
+    }
+
+    .test-ride-copy {
+        min-width: 0;
+    }
+
+    .test-ride-copy h2 {
+        text-wrap: balance;
+    }
+
+    .test-ride-copy .actions {
+        margin-top: var(--space-md);
+    }
+
+    @media (max-width: 768px) {
+        .test-ride-promo {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* homepage - our philosophy section */
+    .philosophy-panel {
+        background: var(--color-bg);
+        color: var(--color-text);
+        border: 1px solid var(--color-border);
         border-radius: var(--radius-lg);
         padding: var(--space-lg);
     }
-    */
+
+    .philosophy-panel h2 {
+        font-size: var(--text-lg);
+    }
+
+    .philosophy-panel .product-link {
+        margin-top: 0;
+    }
+
+    /* choose your e-bike experience btn spacing */
+    #choose .btn {
+        margin-top: var(--space-md);
+    }
+
+    /* everyday ride video */
+    .about-video {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .about-video video {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: var(--radius-md);
+        background-color: var(--color-text);
+        cursor: pointer;
+    }
+
+
+
+  
 .productConfigurator {
     display: flex;
     gap: 20px
@@ -400,7 +770,7 @@
     position: relative;
     flex: 1;
     height: 500px;
-    background: var(--color-surface);
+    background: var(--color-bg);     /* added white product bg per prof. suggestions */
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
 }
@@ -436,14 +806,15 @@ input[type="radio"] {
     appearance: none;
     padding: var(--space-sm) var(--space-md);
 }
-label {
+.form-container input[type="radio"] + label {
     border-radius: var(--radius-md);
-    background: var(--color-border);
+    background: var(--color-moss-light);
+    border: 1px solid var(--color-primary);
     color: var(--color-primary);
     padding: var(--space-sm) var(--space-md);
-    
+    cursor: pointer;  /* added a pointer for the selections */ 
 }
-label:hover , input[type="radio"]:checked + label {
+.form-container input[type="radio"] + label:hover , input[type="radio"]:checked + label {
     background: var(--color-primary);
     color: var(--color-bg);
 }
@@ -452,7 +823,96 @@ legend{
     margin-bottom: var(--space-sm);
 }
 
-    /* CALENDAR PLACEHOLDER */
+    /* Responsive image */
+    .product-detail .bike-container {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        padding: var(--space-md);
+        overflow: hidden;
+    }
+
+    .product-detail .bike-container ul {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .product-detail .bike-container li {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .product-detail .bike-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* responsive radio inputs */
+    .form-container fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        margin-top: var(--space-md);
+        margin-bottom: var(--space-lg);
+    }
+
+    /* hide radio inputs but keeping accessibility */
+    .form-container input[type="radio"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+    }
+
+    /* Configurator option labels */
+    .form-container input[type="radio"] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        max-width: 100%;
+        padding: var(--space-md) var(--space-md);
+        text-align: center;
+        line-height: var(--line-height-normal);
+    }
+
+    /* fieldset headings */
+    .form-container legend {
+        font-weight: var(--font-weight-bold);
+        margin-bottom: var(--space-md);
+    }
+
+    /* keyboard accessibility */
+    .form-container input[type="radio"]:focus-visible + label {
+        outline: 3px solid var(--color-focus);
+        outline-offset: 3px;
+    }
+
+    /* mobile sizing */
+    @media (max-width: 520px) {
+        .form-container input[type="radio"] + label {
+            flex: 1 1 auto;
+            padding: var(--space-md);
+            font-size: var(--text-sm);
+        }
+
+        .form-container .btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+
+    /* CALENDAR PLACEHOLDER                   // commented out since no longer needed
     .calendar-placeholder {
         background: var(--color-surface);
         border: 2px solid var(--color-border);
@@ -460,7 +920,7 @@ legend{
         padding: var(--space-lg);
         margin-top: var(--space-lg);
         text-align: center;
-    }
+    } */
 
    /* INFO PAGE - styles added by TC Nov. 19 - may be changed as necessary */
 
@@ -503,12 +963,25 @@ legend{
     }
 
     .btn-light:hover {
-        background: var(--color-surface);
-        color: var(--color-text);
+        background: var(--color-primary);
+        color: var(--color-bg);
+        border-color: var(--color-primary);
+    }
+
+    .hero .btn-light:hover {
+        background: var(--color-white);
+        color: var(--color-primary);
+        border-color: var(--color-white);
     }
 
     .site-nav a:hover {
         color: var(--color-primary);
+    }
+
+    /* hero buttons keyboard focus */
+    .hero .btn:focus-visible {
+        outline: 3px solid var(--color-bg);
+        outline-offset: 4px;
     }
 }
 
@@ -533,8 +1006,8 @@ legend{
         border: 2px solid var(--color-border);
         border-radius: var(--radius-md);
 
-        background: var(--color-bg);
-        color: var(--color-text);
+        background: var(--color-primary);
+        color: var(--color-bg);
 
         font: inherit;
         text-align: left;
@@ -547,7 +1020,7 @@ legend{
     }
 
     .location-card span {
-        color: var(--color-text-muted);
+        color: var(--color-moss-light);
     }
 
 
@@ -583,8 +1056,8 @@ legend{
         border: 2px solid var(--color-border);
         border-radius: var(--radius-md);
 
-        background: var(--color-bg);
-        color: var(--color-text);
+        background: var(--color-primary);
+        color: var(--color-bg);
 
         font: inherit;
         font-weight: var(--font-weight-semibold);
@@ -636,8 +1109,10 @@ legend{
     /* Selected States */
     .location-card.is-selected,
     .time-slot.is-selected {
-        border-color: var(--color-secondary);
-        background: var(--color-surface);
+        border-color: var(--color-primary);
+        background: var(--color-primary);
+        color: var(--color-bg);
+        box-shadow: inset 0 0 0 3px var(--color-bg);
     }
 
 
@@ -655,6 +1130,7 @@ legend{
     /* Hover */
     .location-card:hover,
     .time-slot:not(:disabled):hover {
+        background: var(--color-primary-hover);
         border-color: var(--color-primary);
     }
 
@@ -677,4 +1153,27 @@ legend{
             grid-template-columns: 1fr;
         }
     }
+
+    #scheduling-message {
+        margin-bottom: 1rem;
+        line-height: var(--line-height-normal);
+    }
+
+    #date-section {
+        margin-top: 1rem;
+        padding: 0;
+    }
+
+    #date-section label {
+        display: block;
+        position: static;
+        background: transparent;
+        padding: 0;
+        margin: 0 0 0.5rem;
+        border: none;
+        border-radius: 0;
+        line-height: var(--line-height-normal);
+        text-align: left;
+        cursor: default;
+    }  
 }

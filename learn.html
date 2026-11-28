@@ -7,7 +7,7 @@
     <meta name="description" content="Drift Electric Bike Company student website prototype. GIT 450/550.">
     <meta name="author" content="Web Dev Team GIT 450/550">
 
-    <title>Drift Electric Bikes Products Page</title>
+    <title>Drift Electric Bikes | Information Hub</title>
 
     <!-- Link to External Stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -20,16 +20,15 @@
     <!-- Header section -->
     <header class="site-header">
         <div class="container header">
-            <a href="index.html" class="logo">Drift Electric Bike Company</a>
+            <a href="index.html" class="logo">
+                <img src="images/Drift_Logo_Dark.svg" alt="Drift Electric Bike Company — Home">
 
             <!-- Main Navigation -->
             <nav class="site-nav" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="bikes.html">Bikes</a></li>
                     <li><a href="customize.html">Customize</a></li>
-                    <li><a href="index.html#build">Build Your E-Bike</a></li>
-                    <li><a href="info.html">Info</a></li>
+                    <li><a href="learn.html" aria-current="page">Learn</a></li>
                     <li><a href="test-ride.html">Test Ride</a></li>
                 </ul>
             </nav>
@@ -49,13 +48,13 @@
             <p>You don’t need to be a gearhead or a tech whiz to own and ride an e-bike, but we have some helpful information about the parts of an e-bike and its maintenance.</p>
             <h3>The Frame</h3>
                 <p>Our frames are built from premium aluminum and carbon fiber. Aluminum frames are durable and easy to repair, and they cost less than their carbon counterparts. The advantage of carbon fiber frames is that they are lighter than aluminum, reducing the overall weight of the e-bike, but they do cost more.</p>
-                <h3>The Motor</h3>
+                <h3 id="city-riding">The Motor</h3>
                 <p>E-bike motors vary in power from 250W to 750W. When you order your e-bike, you can customize the motor to suit your riding habits. Motors with higher power are useful for riders who expect to ride uphill or over rough terrain, and they also allow the bike to travel faster. However, higher wattage motors increase the weight of the bike and use more battery power.</p>
-                <h3>The Battery</h3>
+                <h3 id="battery">The Battery</h3>
                 <p>Battery size and power vary, and we allow customization. We recommend basing your battery choice on the distance you plan to travel. A larger battery allows the rider to travel longer distances, but it will also cost more and make the bike heavier. The distance an e-bike can travel before the battery needs to be charged depends on the bike’s specifications and the terrain. Most e-bikes can travel about 25 to 50 miles on average before a battery charge, with rough conditions taking more battery power. Most batteries recharge to 100% in about 3 to 6 hours. The lifespan of a battery is about 3 to 6 years or 500 to 1,000 charge cycles.</p>
-                <h3>Pedal Assist and Throttle</h3>
+                <h3 id="pedal-assist">Pedal Assist and Throttle</h3>
                 <p>The pedal assist regulates the power that the motor provides proportional to the power of the rider’s pedaling. This feature is required by law and helps the rider anticipate how their own physical exertion will affect their ride. Not all e-bikes use throttles, but they allow the bike to operate on power from the motor without the rider pedaling the bike. Throttles on e-bikes can be either hand-activated or foot-activated.</p>
-                <h3>The Brakes</h3>
+                <h3 id="brakes">The Brakes</h3>
                 <p>Our e-bikes use hydraulic brakes so you can stop safely, even at fast speeds or over rough terrain.</p>
             </div>
         </section>
@@ -70,7 +69,7 @@
             <div class="answer">
             <p>Local regulations vary, but most U.S. states don’t require a license for an e-bike rider. They also don’t typically require the e-bike to be registered or for the rider to have insurance.</p>
             </div>
-                <p class="question">How do you clean an e-bike?</p>
+                <p class="question" id="maintenance">How do you clean an e-bike?</p>
             <div class="answer">
             <p>You can use water, with or without a bike shampoo from a specialty shop. The electric parts of the bike are water resistant, but you should always remove the battery before washing the bike. Never submerge the bike or use any form of power wash.</p>
             </div>
@@ -78,12 +77,17 @@
         </section>
     </main> 
 
-    <!-- Footer section -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container footer-inner">
-            <p>&copy; 2026 Drift Electric Bike Company. Web Dev Team, GIT 450/550.</p>
-            <a href="#top" class="footer-link">Back to top &uarr;</a>
+            <p>&copy; 2026 Drift Electric Bike Company. Web Dev Team, GIT 450/550. </p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="you@example.com" required>
         </div>
+
+        <!-- btt -->
+        <a href="#top" class="btt btn">Back to top ↑</a>
     </footer>
+    
 </body>
 </html>
