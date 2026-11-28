@@ -7,7 +7,7 @@
     <meta name="description" content="Drift Electric Bike Company student website prototype. GIT 450/550.">
     <meta name="author" content="Web Dev Team GIT 450/550">
 
-    <title>Drift Electric Bikes Products Page</title>
+    <title>Drift Electric Bikes | Product Configurator & Price Comparison Page</title>
 
     <!-- Link to External Stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -21,16 +21,15 @@
     <!-- Header section -->
     <header class="site-header">
         <div class="container header">
-            <a href="index.html" class="logo">Drift Electric Bike Company</a>
+            <a href="index.html" class="logo">
+                <img src="images/Drift_Logo_Dark.svg" alt="Drift Electric Bike Company — Home"></a>
 
             <!-- Main Navigation -->
             <nav class="site-nav" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="customize.html">Customize</a></li>
-                    <li><a href="index.html#build">Build Your E-Bike</a></li>
-                    <li><a href="info.html">Info</a></li>
+                    <li><a href="bikes.html">Bikes</a></li>
+                    <li><a href="customize.html" aria-current="page">Customize</a></li>
+                    <li><a href="learn.html">Learn</a></li>
                     <li><a href="test-ride.html">Test Ride</a></li>
                 </ul>
             </nav>
@@ -43,6 +42,12 @@
         <section class="section">
             <div class="container">
                 <a href="index.html#home" class="back-link">&larr; Back to Home</a>
+
+                <p class="eyebrow">MAKE IT YOURS</p>
+                <h1>Customize Your E-Bike</h1>
+                <p class="section-intro">
+                    Build an e-bike that fits your riding style.
+                </p>
 
                 <div class="split product-detail">
                     <div class="bike-container">
@@ -99,32 +104,24 @@
 
                             <p><a href="test-ride.html" class="btn">Schedule a Test Ride</a></p>
                     </form>
-                </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Bike Comparison section moved to separate page to prevent slow load times 
-             & added empty div + id for Javascript functionality -->
-        <section class="section section-muted">
-            <div class="container">
-                <p class="eyebrow">COMPARE MODELS</p>
-                <h2>Dynamic Product Comparison</h2>
-                <p class="section-intro">Which bike works best for you?</p>
-                
-                <!-- Product Comparison functionality -->
-                <div id="product-comparison"></div>
-
-            </div>
-        </section>
     </main>
 
-    <!-- Footer section -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container footer-inner">
-            <p>&copy; 2026 Drift Electric Bike Company. Web Dev Team, GIT 450/550.</p>
-            <a href="#top" class="footer-link">Back to top &uarr;</a>
+            <p>&copy; 2026 Drift Electric Bike Company. Web Dev Team, GIT 450/550. </p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="you@example.com" required>
         </div>
+
+        <!-- btt -->
+        <a href="#top" class="btt btn">Back to top ↑</a>
     </footer>
+    
 </body>
 </html>
